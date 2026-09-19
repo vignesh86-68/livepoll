@@ -2,7 +2,7 @@
 
 A live polling tool where users create polls, share a link, and audiences vote — with results updating in real-time, no refresh needed.
 
-**Live:** _[deployed link here]_
+**Live:** [https://livepoll-l0lk.onrender.com](https://livepoll-l0lk.onrender.com)
 
 ## Tech Stack
 

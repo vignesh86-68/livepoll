@@ -18,23 +18,31 @@ export default function SignupPage() {
     e.preventDefault();
     setError('');
 
-    if (password.length < 6) {
-      return setError('Password must be at least 6 characters');
+    if (name.trim().length === 0) {
+      return setError('Please enter your full name');
+    }
+
+    if (password.length < 8) {
+      return setError('Password must be at least 8 characters');
     }
 
     setLoading(true);
 
     try {
-      await signup({ name, email, password });
+      await signup({ name: name.trim(), email: email.trim(), password });
       navigate('/dashboard');
     } catch (err) {
-      setError(err.error || 'Failed to create account. Please try again.');
+      if (err.fields && err.fields.length > 0) {
+        setError(err.fields.map(f => `${f.field}: ${f.message}`).join('. '));
+      } else {
+        setError(err.error || 'Failed to create account. Please try again.');
+      }
     } finally {
       setLoading(false);
     }
   };
 
-  const hasLength = password.length >= 6;
+  const hasLength = password.length >= 8;
   const hasStrongLength = password.length >= 8;
   const hasUpper = /[A-Z]/.test(password);
   const hasNumber = /[0-9]/.test(password);
@@ -124,7 +132,7 @@ export default function SignupPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required 
                   autoComplete="new-password"
-                  placeholder="At least 6 characters"
+                  placeholder="At least 8 characters"
                   disabled={loading}
                 />
                 <button 

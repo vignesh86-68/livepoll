@@ -24,7 +24,11 @@ export default function LoginPage() {
       const from = location.state?.from?.pathname || '/dashboard';
       navigate(from, { replace: true });
     } catch (err) {
-      setError(err.error || 'Invalid credentials. Please verify and try again.');
+      if (err.fields && err.fields.length > 0) {
+        setError(err.fields.map(f => `${f.field}: ${f.message}`).join('. '));
+      } else {
+        setError(err.error || 'Invalid credentials. Please verify and try again.');
+      }
     } finally {
       setLoading(false);
     }

@@ -227,3 +227,14 @@
   color: #818cf8;
   text-decoration: underline;
 }
+
+@media (max-width: 480px) {
+  .auth-page-wrapper {
+    padding: 1.5rem 1rem;
+  }
+  .auth-card {
+    padding: 2rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+}
+

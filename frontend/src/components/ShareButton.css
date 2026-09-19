@@ -98,3 +98,18 @@
   border-color: rgba(99, 102, 241, 0.4);
   color: var(--accent-primary);
 }
+
+@media (max-width: 420px) {
+  .share-url-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .share-copy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .share-shortcuts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

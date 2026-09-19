@@ -1,0 +1,33 @@
+# Go
+backend/cmd/server/server
+backend/cmd/server/server.exe
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Dependencies
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+backend/web/
+
+# Environment variables — NEVER commit these
+backend/.env
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,107 @@
+.live-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.live-status-pill.live {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: var(--text-primary);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.live-status-pill.closed {
+  background: rgba(100, 116, 139, 0.1);
+  border: 1px solid rgba(100, 116, 139, 0.25);
+  color: var(--text-secondary);
+}
+
+.live-pulse-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+}
+
+.live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--success);
+}
+
+.live-pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--success);
+  opacity: 0.6;
+  animation: liveBadgePulse 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.live-tag {
+  font-weight: 800;
+  color: var(--success);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+.live-divider {
+  color: var(--border-default);
+  font-size: 0.85rem;
+}
+
+.live-viewers {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-secondary);
+}
+
+.eye-icon {
+  color: var(--text-tertiary);
+}
+
+.viewer-count {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.viewer-label {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.status-icon {
+  color: var(--text-tertiary);
+}
+
+.status-text {
+  font-weight: 600;
+}
+
+@keyframes liveBadgePulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,100 @@
+.share-trigger-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.share-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.share-modal-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.share-url-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.share-url-input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  cursor: text;
+  flex: 1;
+}
+
+.share-copy-btn {
+  flex-shrink: 0;
+  padding: 0.75rem 1.25rem;
+}
+
+.btn-success-copied {
+  background: var(--success);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+}
+
+.share-shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.share-shortcuts-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.share-shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.shortcut-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.shortcut-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.x-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-btn:hover {
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #25d366;
+}
+
+.email-btn:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  color: var(--accent-primary);
+}

@@ -9,6 +9,8 @@ package config
 
 import (
 	"bufio"
+	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
 	"os"
 	"strings"
@@ -80,10 +82,13 @@ func Load() (*Config, error) {
 	c.JWTSecret = []byte(secret)
 
 	// The voter salt is what stops anonymous voter fingerprints from being
-	// reversible by anyone who knows the hashing scheme. Shipping the public
-	// default to production would defeat it.
-	if c.IsProduction() && c.VoterSalt == devVoterSalt {
-		return nil, fmt.Errorf("VOTER_SALT must be set to a unique random value when APP_ENV=production")
+	// reversible by anyone who knows the hashing scheme. In production, if
+	// VOTER_SALT is not explicitly set or remains the dev default, derive a
+	// stable, high-entropy unique salt from JWT_SECRET so the deployment
+	// stays secure without failing unexpectedly.
+	if c.IsProduction() && (c.VoterSalt == devVoterSalt || c.VoterSalt == "") {
+		h := sha256.Sum256(append([]byte("livepoll-voter-salt:"), c.JWTSecret...))
+		c.VoterSalt = hex.EncodeToString(h[:])
 	}
 
 	if c.Env != "development" && c.Env != "production" {
